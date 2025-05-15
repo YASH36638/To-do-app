@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+
+    <title>Document</title>
+    
+
+</head>
+    <body>
+        <fieldset class="head"><center><h1>My To-Do List</h1></center></fieldset>
+        <br>
+        <fieldset class="1">
+     <!-- <table align="center"> -->
+         <!-- task form -->
+         <form method="post" action="/add" onsubmit="return validateForm();">
+            <input type="text" value="{{task}}" name="task" id="taskInput" placeholder="Enter the task">
+            <button type="submit">Add</button>
+        </form>
+         <br>
+         <ul>
+             {% for task in tasks %}
+             <br>
+                 <li>
+                     <input type="checkbox" >
+                     {{ task }}
+                     <form method="POST" action="/delete" onsubmit="return confirmdeletion();">
+                         <input type="hidden" name="task" value="{{ task }}">
+             
+                         <button type="submit">Delete</button>
+                     </form>
+                 
+                     <form method="GET" action="/edit/{{ loop.index0 }}" style="display:inline;">
+                         <button type="submit">Edit</button>
+                     </form>
+                 </li>
+             {% endfor %}
+         </ul>
+         
+     </fieldset>
+     <script>
+         function validateForm() {
+            const input = document.getElementById('taskInput');
+            if (input.value.trim() === "") {
+                alert("Please enter a task before adding.");
+                return false;
+            }
+            return true;
+        }
+        function confirmdeletion()
+        {
+            return confirm("Are you sure you want to delete the task?");
+        }
+     </script>
+     </body>
+
+</html>

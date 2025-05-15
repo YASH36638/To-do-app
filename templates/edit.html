@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" type="txt/css" href="static\edit.css">
+    <title>Editing_Task</title>
+    <style>
+        body
+        {
+            background-color:  #e74c3c;;
+            font-family:Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button:hover
+        {
+            background-color: white;
+
+        }
+        button{
+            
+            padding: 8px 12px;
+            margin-left: 5px;
+            border: none;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="text"] {
+            align-items: center;
+            padding: 8px;
+            width: 500px;
+            border-radius: 50px;
+            border: 10px solid #ccc;
+        }
+        h2 {
+            text-align: center;
+            color: black;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>Edit Task</h2>
+    
+    <form method="POST" action="/edit/{{ index }}" id="editForm">
+        <input type="text" name="task" id=taskInput value="{{ task }}">
+        <button type="submit">Update</button>
+    </form>
+   
+<br>
+    <button><a href="/">Back to List</a></button>
+
+     <script>
+        document.getElementById('editForm').addEventListener('submit', function(e) {
+            const input = document.getElementById('taskInput');
+            if (input.value.trim() === '') {
+                alert('Task cannot be empty!');
+                e.preventDefault();
+            }
+        });
+
+    </script>
+</body>
+</html>
