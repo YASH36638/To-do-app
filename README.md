@@ -2,7 +2,7 @@
 
 A simple yet functional **Flask-based To-Do List Web App** with support for:
 
-- Task creation, editing, and deletion  
+- Task creation, editing, and deletion  (CRUD)
 - CSS styling  
 - Containerization with Docker  
 - Kubernetes deployment support  
