@@ -8,7 +8,6 @@ body {
     align-items: center;
 }
 
-/* Center the heading */
 h1 {
     text-align: center;
     color: black;
@@ -23,13 +22,13 @@ form {
     text-align: center;
 }
 
-
 input[type="text"] {
 
     padding: 8px;
-    width: 500px;
+    width: 250px;
     border-radius: 50px;
     border: 10px solid #ccc;
+    display: flexbox;
 }
 .head
 {
@@ -39,10 +38,9 @@ input[type="text"] {
     padding:8px;
     border: 10px solid #ccc;
     border-radius: 50px;
-    text-transform:capitalize;    
+     
 }
 
-/* Button styling */
 button {
     padding: 8px 12px;
     margin-left: 5px;
@@ -58,7 +56,6 @@ button:hover {
     
 }
 
-/* Container for task list */
 ul {
     list-style-type: none;
     padding:1;
